@@ -665,7 +665,7 @@ kbd {
 }
 .content-wrap {
   width: calc(100% - 330px);
-  float: left;
+  float: right;
 }
 .content-wrap--noside {
   float: none;
@@ -969,7 +969,7 @@ kbd {
 }
 .sidebar-wrap {
   width: 300px;
-  float: right;
+  float: left;
 }
 .sidebar-nav {
   padding-bottom: 1em;
@@ -2098,7 +2098,7 @@ kbd {
   border-radius: 5px;
   padding: 1rem 2rem;
   background-color: var(--color-card);
-  float: left;
+  float: right;
 }
 .copy-button {
   position: absolute;
@@ -2367,12 +2367,12 @@ kbd {
   font-size: 0.9em;
   color: #999;
 }
-@media (min-width: 1138px) {
+@media (min-width: 1370px) {
   .header-nav-inner {
-    width: 1138px;
+    width: 1370px;
   }
   .main-inner {
-    width: 1138px;
+    width: 1370px;
   }
 }
 @media (min-width: 991.98px) {
