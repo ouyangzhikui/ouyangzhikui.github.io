@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>将GeoJson面域转换成PPT可编辑的多段线 | Yang's Blog</title><meta name="keywords" content="GeoJson,记录,数据转换"><meta name="author" content="OUYANG"><meta name="copyright" content="OUYANG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="什么？还有这种需求？？？我很好奇~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="将GeoJson面域转换成PPT可编辑的多段线">
+<meta property="og:url" content="https://ouyangzhikui.github.io/2021/04/24/%E5%B0%86GeoJson%E9%9D%A2%E5%9F%9F%E8%BD%AC%E6%8D%A2%E6%88%90PPT%E5%8F%AF%E7%BC%96%E8%BE%91%E7%9A%84%E5%A4%9A%E6%AE%B5%E7%BA%BF/index.html">
+<meta property="og:site_name" content="Yang&#39;s Blog">
+<meta property="og:description" content="什么？还有这种需求？？？我很好奇~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/image-20210424000835684.png">
+<meta property="article:published_time" content="2021-04-23T17:11:54.000Z">
+<meta property="article:modified_time" content="2021-04-23T17:31:06.464Z">
+<meta property="article:author" content="OUYANG">
+<meta property="article:tag" content="GeoJson">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="数据转换">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/image-20210424000835684.png"><link rel="shortcut icon" href="/images/favicon.png"><link rel="canonical" href="https://ouyangzhikui.github.io/2021/04/24/%E5%B0%86GeoJson%E9%9D%A2%E5%9F%9F%E8%BD%AC%E6%8D%A2%E6%88%90PPT%E5%8F%AF%E7%BC%96%E8%BE%91%E7%9A%84%E5%A4%9A%E6%AE%B5%E7%BA%BF/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-24 01:31:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/image-20210424000835684.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Yang's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">将GeoJson面域转换成PPT可编辑的多段线</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-23T17:11:54.000Z" title="发表于 2021-04-24 01:11:54">2021-04-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-23T17:31:06.464Z" title="更新于 2021-04-24 01:31:06">2021-04-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="将GeoJson面域转换成PPT可编辑的多段线"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="事件背景"><a href="#事件背景" class="headerlink" title="事件背景"></a>事件背景</h2><p>​        前段时间小明（化名）找到我，说他有一个面域文件是<code>.json</code>后缀名的，想导入到PPT里面进行编辑颜色、调整透明度等操作，问我有没有什么方法。我当然是没有办法了……..，我还是第一次听到这种需求，但是——这么有趣的事情，好奇心驱使我必然要去试一试啊~~:grin:</p>
+<p>​        我大概了解了他的需求：原来是他要做汇报PPT，涉及到一些地理区域的分析图，从网上找到的分析数据下载下来是<code>.json</code>格式的，无法导入到PPT中，而且他还需要叠加不同区域，所以还要能自定义面域的颜色、透明度等。</p>
+<a id="more"></a>
+
+<h2 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h2><ul>
+<li><p><strong>GeoJson介绍</strong></p>
+<p>这个网上都搜得到，具体介绍的肯定比我详细，百度百科可点击<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/GeoJson/12011566">这里</a>，官网首页可点击<a target="_blank" rel="noopener" href="https://geojson.org/">这里</a>。</p>
+</li>
+<li><p><strong>第一次尝试</strong></p>
+<p>因为PPT支持常见的格式插入，因此首先想到的是将 json 文件转换成常见的文本格式。</p>
+<p>首先将json文件导入到QGIS中，然后利用QGIS导出成中间格式。这里QGIS可导出的文件格式有：图片、PDF、DXF。</p>
+<blockquote>
+<p>QGIS是一款用户界面友好的、轻量级的、跨平台的、开源的GIS工具。官网点击<a target="_blank" rel="noopener" href="https://www.qgis.org/">这里</a>，可下载最新版本。</p>
+</blockquote>
+<blockquote>
+<p>你问我为什么要用QIGS转换文件？——没有为什么，因为当时小明正在用<del>他（划掉）</del>它。。。</p>
+</blockquote>
+<p>导入到QGIS的界面</p>
+<img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/image-20210424000835684.png" alt="image-20210424000835684" style="zoom:50%;" />
+
+<p>然后在QGIS的【工程】&gt;【导入/导出】中导出为DXF格式，之后利用CAD转存为<code>.dwg</code>，这下可以在PPT中导入dwg文件了。——但是，导进去之后是图片格式…… <strong>无法满足可编辑的需求</strong></p>
+</li>
+<li><p><strong>再次尝试——成功了！</strong></p>
+<p>由于QGIS可导出的文件中只有DXF是可编辑性最强的，所以我还是把目标放在了从CAD到PPT上面。于是我再次找到了万能的度娘，得到了<a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=dwg%E7%BA%BF%E5%AF%BC%E5%85%A5PPT&rsv_spt=1&rsv_iqid=0x91412be20007ab4f&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=0&rsv_dl=tb&rsv_btype=t&inputT=214&rsv_t=f76eJpXbpg69UAruLllWeJf+vfRsW49kJv0eNNs4VXoQbjkUsAC9LI39vr0pv1x9X0mb&oq=dwg%25E7%25BA%25BF%25E5%25AF%25BC%25E5%2585%25A5PPT%25E5%258F%25AF%25E7%25BC%2596%25E8%25BE%2591&rsv_pq=aa955c42000669e7&rsv_sug3=74&rsv_sug1=60&rsv_sug7=100&rsv_sug2=0&rsv_sug4=852">这样的</a>结果，然后我又看到了<a target="_blank" rel="noopener" href="https://www.3d66.com/answers/question_180437.html">这个</a>不起眼的问答，看到了下面这个解答：</p>
+<p><img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/image-20210424003058269.png" alt="image-20210424003058269"></p>
+<p>原来是图元文件！</p>
+<p>豁然——想试一试~</p>
+<p>所以我在CAD中把面域的填充删除，只留下了边线，然后导出wmf文件，直接拖到PPT中，再<strong>解组！解组！解组！</strong>删掉多余的框框，只留下边线。效果如下，可进行填充和更改颜色：</p>
+<img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/image-20210424003826943.png" alt="image-20210424003826943" style="zoom: 67%;" />
+
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>技术路线其实就是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">	.json--QGIS转换---.DXF</span><br><span class="line">	.DXF--CAD转换---.wmf</span><br><span class="line">	.wmf--导入--&gt;PPT</span><br><span class="line">	PPT--解组--&gt;stop[结束]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>不知道常见的解决方案是什么样的，这仅仅是我自己胡乱尝试的一次总结，仅以记录。</p>
+</blockquote>
+<blockquote>
+<p>如有相同或者类似的需求，或者有更好更专业的解决方案，欢迎交流！</p>
+</blockquote>
+<blockquote>
+<p>对了，我感觉开源的QGIS应该有点意思，后面可以研究研究，看看有没有什么好玩的操作，hei~ hei!~</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">OUYANG</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ouyangzhikui.github.io/2021/04/24/%E5%B0%86GeoJson%E9%9D%A2%E5%9F%9F%E8%BD%AC%E6%8D%A2%E6%88%90PPT%E5%8F%AF%E7%BC%96%E8%BE%91%E7%9A%84%E5%A4%9A%E6%AE%B5%E7%BA%BF/">https://ouyangzhikui.github.io/2021/04/24/%E5%B0%86GeoJson%E9%9D%A2%E5%9F%9F%E8%BD%AC%E6%8D%A2%E6%88%90PPT%E5%8F%AF%E7%BC%96%E8%BE%91%E7%9A%84%E5%A4%9A%E6%AE%B5%E7%BA%BF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ouyangzhikui.github.io" target="_blank">Yang's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GeoJson/">GeoJson</a><a class="post-meta__tags" href="/tags/%E8%AE%B0%E5%BD%95/">记录</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2/">数据转换</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/01/24/AutoCAD-NET%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E4%B9%8BJIG%E5%8A%A8%E6%80%81%E7%BB%98%E5%88%B6%E8%AF%A6%E8%A7%A3/"><img class="next-cover" src="/images/header.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">AutoCAD.NET二次开发之JIG动态绘制详解</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">OUYANG</div><div class="author-info__description">个人博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ouyangzhikui"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ouyangzhikui" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/ouyangzhikui" target="_blank" title="Gitee"><i class="fab fab fa-git-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Just Do it!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">事件背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">解决过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/04/24/%E5%B0%86GeoJson%E9%9D%A2%E5%9F%9F%E8%BD%AC%E6%8D%A2%E6%88%90PPT%E5%8F%AF%E7%BC%96%E8%BE%91%E7%9A%84%E5%A4%9A%E6%AE%B5%E7%BA%BF/" title="将GeoJson面域转换成PPT可编辑的多段线"><img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/image-20210424000835684.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="将GeoJson面域转换成PPT可编辑的多段线"/></a><div class="content"><a class="title" href="/2021/04/24/%E5%B0%86GeoJson%E9%9D%A2%E5%9F%9F%E8%BD%AC%E6%8D%A2%E6%88%90PPT%E5%8F%AF%E7%BC%96%E8%BE%91%E7%9A%84%E5%A4%9A%E6%AE%B5%E7%BA%BF/" title="将GeoJson面域转换成PPT可编辑的多段线">将GeoJson面域转换成PPT可编辑的多段线</a><time datetime="2021-04-23T17:11:54.000Z" title="发表于 2021-04-24 01:11:54">2021-04-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/24/AutoCAD-NET%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E4%B9%8BJIG%E5%8A%A8%E6%80%81%E7%BB%98%E5%88%B6%E8%AF%A6%E8%A7%A3/" title="AutoCAD.NET二次开发之JIG动态绘制详解">AutoCAD.NET二次开发之JIG动态绘制详解</a><time datetime="2021-01-23T18:48:08.000Z" title="发表于 2021-01-24 02:48:08">2021-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/24/%E4%BD%BF%E7%94%A8-Hexo-GitHub-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B%EF%BC%88%E5%B0%8F%E7%99%BD%E5%90%91%EF%BC%89/" title="使用 Hexo+GitHub 搭建个人免费博客教程（小白向）"><img src="/images/header.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 Hexo+GitHub 搭建个人免费博客教程（小白向）"/></a><div class="content"><a class="title" href="/2021/01/24/%E4%BD%BF%E7%94%A8-Hexo-GitHub-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B%EF%BC%88%E5%B0%8F%E7%99%BD%E5%90%91%EF%BC%89/" title="使用 Hexo+GitHub 搭建个人免费博客教程（小白向）">使用 Hexo+GitHub 搭建个人免费博客教程（小白向）</a><time datetime="2021-01-23T18:47:39.000Z" title="发表于 2021-01-24 02:47:39">2021-01-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By OUYANG</div><div class="footer_custom_text">欢迎访问Yang's blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '8d124fef0d5e7e586866',
+      clientSecret: '071e69a9ccc9b6275b6d29c140447f823921f48d',
+      repo: 'ouyangzhikui.github.io',
+      owner: 'ouyangzhikui',
+      admin: ['ouyangzhikui'],
+      id: '33e261af2677e4b2bccec069589907db',
+      language: 'zh-CN',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
