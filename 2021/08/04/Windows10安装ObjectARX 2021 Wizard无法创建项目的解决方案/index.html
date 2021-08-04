@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Windows10安装ObjectARX 2021 Wizard无法创建项目的解决方案 | Yang's Blog</title><meta name="keywords" content="记录,ObjectARX,CAD二次开发"><meta name="author" content="OUYANG"><meta name="copyright" content="OUYANG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我太难了～头秃～～">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows10安装ObjectARX 2021 Wizard无法创建项目的解决方案">
+<meta property="og:url" content="https://ouyangzhikui.github.io/2021/08/04/Windows10%E5%AE%89%E8%A3%85ObjectARX%202021%20Wizard%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="Yang&#39;s Blog">
+<meta property="og:description" content="我太难了～头秃～～">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/20210804210501.png">
+<meta property="article:published_time" content="2021-08-04T14:50:54.000Z">
+<meta property="article:modified_time" content="2021-08-04T15:30:17.265Z">
+<meta property="article:author" content="OUYANG">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="ObjectARX">
+<meta property="article:tag" content="CAD二次开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/20210804210501.png"><link rel="shortcut icon" href="/images/favicon.png"><link rel="canonical" href="https://ouyangzhikui.github.io/2021/08/04/Windows10%E5%AE%89%E8%A3%85ObjectARX%202021%20Wizard%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-08-04 23:30:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/20210804210501.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Yang's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Windows10安装ObjectARX 2021 Wizard无法创建项目的解决方案</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-08-04T14:50:54.000Z" title="发表于 2021-08-04 22:50:54">2021-08-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-08-04T15:30:17.265Z" title="更新于 2021-08-04 23:30:17">2021-08-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Windows10安装ObjectARX 2021 Wizard无法创建项目的解决方案"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="一-、VS2019-ObjectARX2021环境配置流程"><a href="#一-、VS2019-ObjectARX2021环境配置流程" class="headerlink" title="一 、VS2019+ObjectARX2021环境配置流程"></a>一 、VS2019+ObjectARX2021环境配置流程</h2><p>正常配置ObjectARX2021的开发环境一般按照以下步骤进行配置：</p>
+<p><strong>1. 下载安装AutoCAD2021；</strong><br><strong>2. 下载安装VS2019（安装C++桌面开发环境）；</strong><br><strong>3. 下载解压ObjectARX 2021 SDK文件objectarx_for_autocad_2021_win_64bit_dlm.sfx.exe</strong><br><strong>4.  安装ObjectARXWizard2021.msi</strong></p>
+<h2 id="二-、无法创建项目"><a href="#二-、无法创建项目" class="headerlink" title="二 、无法创建项目"></a>二 、无法创建项目</h2><p>在安装完成之后，我打开VS2019准备新建项目，然后搜索刚刚安装完的向导模板，此时VS的界面如下：</p>
+<p><img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/20210804204427.png" alt="image-20210804204427566"></p>
+<p>虽然搜索不到但是手动查找之后还是找到了。</p>
+<p><img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/20210804204405.png" alt="image-20210804204405782"></p>
+<p>然后准备创建ARX项目的时候发现VS2019一直会卡在这个界面，点创建没有任何反应。</p>
+<p><img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/20210804204647.png" alt="image-20210804204647294"></p>
+<h2 id="三-、解决方案"><a href="#三-、解决方案" class="headerlink" title="三 、解决方案"></a>三 、解决方案</h2><p>网上冲浪了一会之后找到了<a target="_blank" rel="noopener" href="https://www.cnblogs.com/edata/p/6796025.html">类似的帖子</a>,参照这个帖子我按照以下方式进行了设置：</p>
+<p>**1.更改VS目录下的<code>ArxAppWiz2021.vsz</code>文件 **</p>
+<p>我电脑中该文件的位置为<code>D:\Program Files\Microsoft Visual Studio\2019\Community\Common7\IDE\VC\vcprojects\Autodesk\</code></p>
+<p><img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/20210804205349.png" alt="image-20210804205349798"></p>
+<p>使用记事本打开，内容可能为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">VSWIZARD 7.0</span><br><span class="line">Wizard&#x3D;VsWizard.VsWizardEngine.16.0</span><br><span class="line">Param&#x3D;&quot;WIZARD_NAME &#x3D; ArxAppWiz&quot;</span><br><span class="line">Param&#x3D;&quot;ABSOLUTE_PATH &#x3D; [TARGETDIR]ArxAppWiz&quot;</span><br><span class="line">Param&#x3D;&quot;FALLBACK_LCID &#x3D; 1033&quot;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">VSWIZARD 7.0</span><br><span class="line">Wizard&#x3D;VsWizard.VsWizardEngine.16.0</span><br><span class="line">Param&#x3D;&quot;WIZARD_NAME &#x3D; ArxAppWiz&quot;</span><br><span class="line">Param&#x3D;&quot;ABSOLUTE_PATH &#x3D; C:\Program Files (x86)\Autodesk\ObjectARX 2021 Wizards\ArxAppWiz&quot;</span><br><span class="line">Param&#x3D;&quot;FALLBACK_LCID &#x3D; 1033&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>2. 修改arx的配置模板<code>Autodesk.arx-2021.props</code>文件</strong></p>
+<p>默认的路径为<code>C:\Program Files (x86)\Autodesk\ObjectARX 2021 Wizards\</code></p>
+<p><img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/20210804205914.png" alt="image-20210804205914826"></p>
+<p>用记事本打开之后将其中<code>&lt;ArxSdkDir&gt;C:\ObjectARX\&lt;/ArxSdkDir&gt;    </code>修改路径为ObjectARX SDK的解压路径，我的改为<code>&lt;ArxSdkDir&gt;C:\Autodesk\ObjectARX\ObjectARX_for_AutoCAD_2021_Win_64bit_dlm\&lt;/ArxSdkDir&gt;    </code>，同时将<code>&lt;AcadDir Condition=&quot;&#39;$(Platform)&#39;==&#39;x64&#39;&quot;&gt;C:\Program Files\Autodesk\AutoCAD 2021\&lt;/AcadDir&gt;</code>路径改为CAD2021安装路径。</p>
+<p><img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/20210804210340.png" alt="image-20210804210340020"></p>
+<p><strong>3. 再次打开VS2019创建ARX项目即可</strong></p>
+<p><img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/20210804210501.png" alt="image-20210804210501661"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">OUYANG</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ouyangzhikui.github.io/2021/08/04/Windows10%E5%AE%89%E8%A3%85ObjectARX%202021%20Wizard%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">https://ouyangzhikui.github.io/2021/08/04/Windows10%E5%AE%89%E8%A3%85ObjectARX%202021%20Wizard%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ouyangzhikui.github.io" target="_blank">Yang's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%B0%E5%BD%95/">记录</a><a class="post-meta__tags" href="/tags/ObjectARX/">ObjectARX</a><a class="post-meta__tags" href="/tags/CAD%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/">CAD二次开发</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/04/24/%E5%B0%86GeoJson%E9%9D%A2%E5%9F%9F%E8%BD%AC%E6%8D%A2%E6%88%90PPT%E5%8F%AF%E7%BC%96%E8%BE%91%E7%9A%84%E5%A4%9A%E6%AE%B5%E7%BA%BF/"><img class="next-cover" src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/image-20210424000835684.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">将GeoJson面域转换成PPT可编辑的多段线</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/04/24/将GeoJson面域转换成PPT可编辑的多段线/" title="将GeoJson面域转换成PPT可编辑的多段线"><img class="cover" src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/image-20210424000835684.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-24</div><div class="title">将GeoJson面域转换成PPT可编辑的多段线</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">OUYANG</div><div class="author-info__description">个人博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ouyangzhikui"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ouyangzhikui" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/ouyangzhikui" target="_blank" title="Gitee"><i class="fab fab fa-git-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Just Do it!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E3%80%81VS2019-ObjectARX2021%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">一 、VS2019+ObjectARX2021环境配置流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E3%80%81%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.</span> <span class="toc-text">二 、无法创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E3%80%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">三 、解决方案</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/08/04/Windows10%E5%AE%89%E8%A3%85ObjectARX%202021%20Wizard%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="Windows10安装ObjectARX 2021 Wizard无法创建项目的解决方案"><img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/20210804210501.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows10安装ObjectARX 2021 Wizard无法创建项目的解决方案"/></a><div class="content"><a class="title" href="/2021/08/04/Windows10%E5%AE%89%E8%A3%85ObjectARX%202021%20Wizard%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="Windows10安装ObjectARX 2021 Wizard无法创建项目的解决方案">Windows10安装ObjectARX 2021 Wizard无法创建项目的解决方案</a><time datetime="2021-08-04T14:50:54.000Z" title="发表于 2021-08-04 22:50:54">2021-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/24/%E5%B0%86GeoJson%E9%9D%A2%E5%9F%9F%E8%BD%AC%E6%8D%A2%E6%88%90PPT%E5%8F%AF%E7%BC%96%E8%BE%91%E7%9A%84%E5%A4%9A%E6%AE%B5%E7%BA%BF/" title="将GeoJson面域转换成PPT可编辑的多段线"><img src="https://gitee.com/ouyangzhikui/images_for_md/raw/master/images/image-20210424000835684.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="将GeoJson面域转换成PPT可编辑的多段线"/></a><div class="content"><a class="title" href="/2021/04/24/%E5%B0%86GeoJson%E9%9D%A2%E5%9F%9F%E8%BD%AC%E6%8D%A2%E6%88%90PPT%E5%8F%AF%E7%BC%96%E8%BE%91%E7%9A%84%E5%A4%9A%E6%AE%B5%E7%BA%BF/" title="将GeoJson面域转换成PPT可编辑的多段线">将GeoJson面域转换成PPT可编辑的多段线</a><time datetime="2021-04-23T17:11:54.000Z" title="发表于 2021-04-24 01:11:54">2021-04-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/24/AutoCAD-NET%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E4%B9%8BJIG%E5%8A%A8%E6%80%81%E7%BB%98%E5%88%B6%E8%AF%A6%E8%A7%A3/" title="AutoCAD.NET二次开发之JIG动态绘制详解">AutoCAD.NET二次开发之JIG动态绘制详解</a><time datetime="2021-01-23T18:48:08.000Z" title="发表于 2021-01-24 02:48:08">2021-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/24/%E4%BD%BF%E7%94%A8-Hexo-GitHub-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B%EF%BC%88%E5%B0%8F%E7%99%BD%E5%90%91%EF%BC%89/" title="使用 Hexo+GitHub 搭建个人免费博客教程（小白向）"><img src="/images/header.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 Hexo+GitHub 搭建个人免费博客教程（小白向）"/></a><div class="content"><a class="title" href="/2021/01/24/%E4%BD%BF%E7%94%A8-Hexo-GitHub-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B%EF%BC%88%E5%B0%8F%E7%99%BD%E5%90%91%EF%BC%89/" title="使用 Hexo+GitHub 搭建个人免费博客教程（小白向）">使用 Hexo+GitHub 搭建个人免费博客教程（小白向）</a><time datetime="2021-01-23T18:47:39.000Z" title="发表于 2021-01-24 02:47:39">2021-01-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By OUYANG</div><div class="footer_custom_text">欢迎访问Yang's blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'forest',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '8d124fef0d5e7e586866',
+      clientSecret: '071e69a9ccc9b6275b6d29c140447f823921f48d',
+      repo: 'ouyangzhikui.github.io',
+      owner: 'ouyangzhikui',
+      admin: ['ouyangzhikui'],
+      id: 'd248e1021222df9f45f8bc171d29f24e',
+      language: 'zh-CN',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
